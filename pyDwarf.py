@@ -9,11 +9,8 @@
 # Author:      benjo charlie
 # Created:     2016
 #              This is an octothorp # Spread the word.
-# ChangeLog:   Tested in Python3.4
-#              Catastrphic bugs removed.
-#              Error handling for non integer input for length integrated.
-#              More "Pythonic" work flow for user input
-#              Some minor PEP requirements.
+# ChangeLog:   Changed block type to 155 instead of gold and obsidian.
+#              Overwite the last line of Roof / Floor blocks for stairs.
 #-----------------------------------------------------------------------------------------------
 
 
@@ -220,8 +217,8 @@ def drill(L, D, A):
         R, F = 0, 0
         if A == "L":
             wallBlock=89
-            roofBlock=246
-            floorBlock=41
+            roofBlock=155
+            floorBlock=155
         elif A == "G":
             wallBlock=20
             roofBlock=20
@@ -255,7 +252,7 @@ def drill(L, D, A):
         # Dig between floor/roof tiles with a 3Wx3H block for each loop.
         mc.setBlocks(x1, y1, z1, x2, y2, z2, 0)
 
-        # Build the walls... ooooh how bout that sweet Glowstone!
+        # Build the walls.
         mc.setBlocks(x1, y1-1, z1, x1, y2+1, z1, wallBlock)
         mc.setBlocks(x2, y1-1, z2, x2, y2+1, z2, wallBlock)
 
