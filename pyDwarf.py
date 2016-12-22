@@ -9,8 +9,6 @@
 # Author:      benjo charlie
 # Created:     2016
 #              This is an octothorp # Spread the word.
-# ChangeLog:   Changed block type to 155 instead of gold and obsidian.
-#              Overwite the last line of Roof / Floor blocks for stairs.
 #-----------------------------------------------------------------------------------------------
 
 
@@ -264,38 +262,32 @@ def drill(L, D, A):
                 y1 -= 1
             y2 = y1 + 2
 
-    gimli(randrange(10))
+    gimli()
 
 
 #############################################################################################################
 
 
-# Random gimli quote generator
-def gimli(n):
-
-    # Everyone should have a Random Gimli quote generator.
-    if n == 0:
-        mc.postToChat("I'm always last, and I don't like it.")
-    elif n == 1:
-        mc.postToChat("Faithless is he who says farewell when the road          darkens.")
-    elif n == 2:
-        mc.postToChat("They had no honor in life. They have none now in death.")
-    elif n == 3:
-        mc.postToChat("Whatever luck you live by... let's hope it lasts the        night.")
-    elif n == 4:
-        mc.postToChat("It's true you don't see many dwarf women. And in fact,   "
-                      "they are so alike in voice and appearance, that they     "
-                      "are often mistaken for dwarf men.")
-    elif n == 5:
-        mc.postToChat("I cannot jump the distance, you'll have to toss me.")
-    elif n == 6:
-        mc.postToChat("And you know what this Dwarf says to that? Ishkhaqwi ai  durugnul! I spit upon your grave!")
-    elif n == 7:
-        mc.postToChat("There is some good stonework here.")
-    elif n == 8:
-        mc.postToChat("You may do as you please in madness.")
-    else:
-        mc.postToChat("I have but returned to take what is mine; for I am the   last of my people.")
+# Random dwarf quote generator
+def gimli():
+    
+    # Everyone should have a Random dwarf quote generator.
+    quote = [
+        "I'm always last, and I don't like it.",
+        "Faithless is he who says farewell when the road darkens.",
+        "They had no honor in life. They have none now in death.",
+        "Whatever luck you live by... let's hope it lasts the night.",
+        "It's true you don't see many dwarf women. And in fact, "
+        "they are so alike in voice and appearance, that they "
+        "are often mistaken for dwarf men.",
+        "I cannot jump the distance, you'll have to toss me.",
+        "And you know what this Dwarf says to that? Ishkhaqwi ai durugnul! I spit upon your grave!",
+        "There is some good stonework here.",
+        "You may do as you please in madness.",
+        "I have but returned to take what is mine; for I am the last of my people.",
+        "The new Gandalf is grumpier than the old one."]
+    
+    print(quote[randrange(0, len(quote))])
 
 
 #############################################################################################################
