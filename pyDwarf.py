@@ -36,13 +36,15 @@ def getinput(i):
     elevation = "Z"
     while i:
         if i == 1:
-            tunnel = input("What type of tunnel are we building, a Hallway or Steps? H, S >> ")
-            if tunnel in ("H", "S"):
-                if tunnel == "H":
+            tunnel = input("\nWhat type of tunnel are we building, a Hallway or Steps? H, S >> ")
+            if tunnel in ("H", "S", "h", "s", "hall", "stairs"):
+                if tunnel in ("H", "h", "hall"):
+                    tunnel = "H"
                     i += 2
                     tunneltype="Hallway"
                     # Debug: print(tunneltype)
-                elif tunnel == "S":
+                elif tunnel in ("S", "s", "stairs"):
+                    tunnel = "S"
                     i += 1
                     tunneltype = "Stairwell"
                     # Debug: print(tunneltype)
@@ -50,39 +52,46 @@ def getinput(i):
                 print("Usage ", i)
                 i = usage(1)
         elif i == 2:
-            if tunnel == "S":
-                elevation = input("Do you want the stairs to go up or down? U,D >> ")
-                if elevation in ("U", "D"):
+            if tunnel in ("S", "s", "stairs"):
+                elevation = input("\nDo you want the stairs to go up or down? U,D >> ")
+                if elevation in ("U", "D", "u", "d", "Up", "Down", "up", "down"):
+                    if elevation in ("U", "u", "Up", "up"):
+                        elevation = "U"
+                    elif elevation in ("D", "d", "Down", "down"):
+                        elevation = "D"
                     i += 2
-                    # Debug: print("Elevation is ", elevation)
-                    # Debug: print("var i = ", i)
                 else:
                     i = usage(2)
-                    # Debug: print("Usage ", i)
             else:
                 i += 2
-                # Debug: print("How did we get here?")
-            # Debug: print("Did we get here?")
 
         elif i == 3:
             if tunnel == "H":
-                elevation = input("Do you want a Glass Hallway or Lighted? G,L >> ")
-                if elevation in ("G", "L"):
+                elevation = input("\nDo you want a Glass Hallway or Lighted? G,L >> ")
+                if elevation in ("G", "L", "g", "l", "glass", "lighted", "Glass", "Lighted"):
                     i += 1
+                    if elevation in ("G", "g", "glass", "Glass"):
+                        elevation = "G"
+                    elif elevation in ("L", "l", "lighted", "Lighted"):
+                        elevation = "L"
                 else:
                     i = usage(3)
                     print("Usage ", i)
         elif i == 4:
-            compass = input("What direction shall we dig? N,E,S or W? >> ")
-            if compass in ("N", "E", "S", "W"):
+            compass = input("\nWhat direction shall we dig? N,E,S or W? >> ")
+            if compass in ("N", "E", "S", "W", "n", "e", "s", "w", "north", "east", "south", "west"):
                 i += 1
-                if compass == "N":
+                if compass in ("N", "n", "north"):
+                    compass = "N"
                     direction = "Northerly"
-                elif compass == "E":
+                elif compass in ("E", "e", "east"):
+                    compass = "E"
                     direction = "Easterly"
-                elif compass == "S":
+                elif compass in ("S", "s", "south"):
+                    compass = "S"
                     direction = "Southerly"
-                elif compass == "W":
+                elif compass in ("W", "w", "west"):
+                    compass = "W"
                     direction = "Westerly"
             else:
                 i = usage(4)
@@ -90,17 +99,17 @@ def getinput(i):
         elif i == 5:
             while True:
                 try:
-                    length = int(input("How deep/far do you want to dig? 1-256 >> "))
-                    if length in (range(1, 257)):
+                    print("\nHow deep/far do you want to dig?\n")
+                    length = int(input("[keypad] 1-128 >> "))
+                    if length in (range(1, 129)):
                         break
                 except:
                     i = usage(5)
-                    # Debug: print("Except was passed")
-            # Debug: print("The try loop broke here.")
+		    
             deep = length
             i += 1
         else:
-            print(" *** Building a ", tunneltype, ", ", deep, " blocks deep in a ", direction, " direction. ***")
+            print("\n *** Building a ", tunneltype, ",", deep, "blocks deep in a ", direction, " direction. ***\n")
             break
 
 
@@ -111,37 +120,37 @@ def usage(u):
     if u == 1:
         print("""\
 Usage: Tunnel type [H, S]
-     -H Hallway               Build a hallway type tunnel (Uppercase only)
-     -S Steps                 Build a stairwell type tunnel (Uppercase only)
+     -H Hallway               Build a hallway type tunnel 
+     -S Steps                 Build a stairwell type tunnel 
 """)
         return 1
     elif u == 2:
         print("""\
 Usage: Up or Down [U, D]
-     -U Upward staircase      Build a stairwell going up 45 degrees (Uppercase only)
-     -D Downward staircase    Build a stairwell going down 45 degrees (Uppercase only)
+     -U Upward staircase      Build a stairwell going up 45 degrees 
+     -D Downward staircase    Build a stairwell going down 45 degrees 
 """)
         return 2
     elif u == 3:
         print("""\
 Usage: Glass or Lighted [G, L]
-     -G Glass Walls           Build a hallway with glass walls (Uppercase only)
-     -L Glowstone Walls       Build a hallway with Glowstone (Uppercase only)
+     -G Glass Walls           Build a hallway with glass walls 
+     -L Glowstone Walls       Build a hallway with Glowstone 
 """)
         return 3
     elif u == 4:
         print("""\
 Usage: Direction [N, E, S, W]
-     -N North                 Build a tunnel in the northern direction (Uppercase only)
-     -E East                  Build a tunnel in the eastern direction (Uppercase only)
-     -S South                 Build a tunnel in the southern direction (Uppercase only)
-     -W West                  Build a tunnel in the western direction (Uppercase only)
+     -N North                 Build a tunnel in the northern direction 
+     -E East                  Build a tunnel in the eastern direction 
+     -S South                 Build a tunnel in the southern direction 
+     -W West                  Build a tunnel in the western direction 
 """)
         return 4
     elif u == 5:
         print("""\
-Usage: Length [1-256]
-     -Integer input ranging 1-256
+Usage: Length [1-128]
+     -Integer input ranging 1-128
 """)
         mc.postToChat("The Dwarves delved too greedily and too deep.")
         return 5
@@ -157,9 +166,6 @@ Usage: Length [1-256]
 # Define 'drill' function
 def drill(L, D, A):
 
-    # Debug: print("L = ", L)
-    # Debug: print("D = ", D)
-    # Debug: print("A = ", A)
     # Set up the local variables.
     # Blocks are assigned from bottom left to upper right.
     # y1 is player level, y2 is up.
@@ -285,9 +291,10 @@ def gimli():
         "There is some good stonework here.",
         "You may do as you please in madness.",
         "I have but returned to take what is mine; for I am the last of my people.",
-        "The new Gandalf is grumpier than the old one."]
+        "The new Gandalf is grumpier than the old one.", 
+	"The Dwarves delved too greedily and too deep."]
     
-    print(quote[randrange(0, len(quote))])
+    mc.postToChat(quote[randrange(0, len(quote))])
 
 
 #############################################################################################################
@@ -295,5 +302,4 @@ def gimli():
 
 # Run the definitions
 getinput(1)
-print("Call the drill function.")
 drill(length, compass, elevation)
