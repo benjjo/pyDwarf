@@ -28,6 +28,9 @@ mc.postToChat("in the starlight.")
 
 class UserInput(object):
 
+    def __init__(self):
+        self.start = "Schist!"
+
     # Get the data from the user:
     def getinput(self, i):
         # Python likes a Global declared in every DEF to be sure you know what you're playing with.
@@ -123,6 +126,9 @@ class UserInput(object):
 
 class OutputToScreen(object):
 
+    def __init__(self):
+        self.start = "Schist!"
+
     def usage(self, u):
         if u == 1:
             print("""\
@@ -210,6 +216,9 @@ class OutputToScreen(object):
 
 
 class DwarfMiner(object):
+
+    def __init__(self):
+        self.start = "Schist!"
 
     # Define 'drill' function
     def drill(self, L, D, A):
