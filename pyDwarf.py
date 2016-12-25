@@ -180,26 +180,27 @@ class OutputToScreen(object):
             "they are so alike in voice and appearance, that they "
             "are often mistaken for dwarf men.",
             "I cannot jump the distance, you'll have to toss me.",
-            "And you know what this Dwarf says to that? Ishkhaqwi ai durugnul! I spit upon your grave!",
+            "And you know what this Dwarf says to that? Ishkhaqwi ai "
+            "durugnul! I spit upon your grave!",
             "There is some good stonework here.",
             "You may do as you please in madness.",
             "I have but returned to take what is mine; for I am the last of my people.",
             "The new Gandalf is grumpier than the old one.", 
-            "The Dwarves delved too greedily and too deep."
-            "The air must be thin up there, elf, for ye are daft to come up with that plan"
-            "Never turn down an ale, who knows if it may be your last."
-            "Her beard is winking at me."
-            "Wherever there are elves, there are lies!"
-            "Nothing a hammer can't solve."
-            "You can kill a dwarf, but you can never vanquish one!"
-            "The stones will sing if you let them."
-            "Dwarven women are like axes. As dangerous from the back as from the front."
-            "A mead in the hand, is worth two goblin heads in the bush."
-            "Leave iron to rest before you hammer it."
-            "You are softer than sandstone and drier than talc!"
-            "Cave toads speak little, but when they do, listen."
-            "A pebble will stay dry inside, no matter how long it is submerged in a pool of water."
-            "Nothing evens a race like an axe to the kneecaps."
+            "The Dwarves delved too greedily and too deep.",
+            "The air must be thin up there, elf, for ye are daft to come up with that plan",
+            "Never turn down an ale, who knows if it may be your last.",
+            "Her beard is winking at me.",
+            "Wherever there are elves, there are lies!",
+            "Nothing a hammer can't solve.",
+            "You can kill a dwarf, but you can never vanquish one!",
+            "The stones will sing if you let them.",
+            "Dwarven women are like axes. As dangerous from the back as from the front.",
+            "A mead in the hand, is worth two goblin heads in the bush.",
+            "Leave iron to rest before you hammer it.",
+            "You are softer than sandstone and drier than talc!",
+            "Cave toads speak little, but when they do, listen.",
+            "A pebble will stay dry inside, no matter how long it is submerged in a pool of water.",
+            "Nothing evens a race like an axe to the kneecaps.",
             "The smallest pebble was once the biggest stone, the biggest stone was once bigger."]
 
         mc.postToChat(quote[randrange(0, len(quote))])
