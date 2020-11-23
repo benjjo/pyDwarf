@@ -4,3 +4,8 @@ Purpose:     Designed to build descending, ascending and straight tunnels in Min
              This is written very simply for debugging/learning purposes.
              Most of this code is designed to handle user input.
              Eventually this will be integrated into classes etc.
+
+Usage: 
+from mcpi import minecraft
+mc = minecraft.Minecraft.create()
+
